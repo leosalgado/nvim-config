@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="af-magic"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -108,3 +115,30 @@ source $ZSH/oh-my-zsh.sh
 # source /usr/share/fzf/completion.zsh
 # source /usr/share/icons-in-terminal/icons_bash.sh
 
+# study stream aliases
+# Requires https://github.com/caarlos0/timer to be installed. spd-say should ship with your distro
+
+declare -A pomo_options
+pomo_options["work"]="45"
+pomo_options["break"]="10"
+
+p () {
+  if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
+  val=$1
+  echo $val | lolcat
+  timer ${pomo_options["$val"]}m
+  spd-say "'$val' session done"
+  fi
+}
+
+alias wo="p 'work'"
+alias br="p 'break'"
+
+fitterhappier(){
+  spd-say --wait "Fitter, happier, more productive,
+  Comfortable, Not drinking too much, Regular exercise at the gym,
+  Three days a week"
+}
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
