@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "clangd" }
+  ensure_installed = { "lua_ls", "clangd", "rust_analyzer" }
 })
 
 local on_attach = function(_, _)
@@ -14,7 +14,18 @@ local on_attach = function(_, _)
 end
 
 require("lspconfig").lua_ls.setup {
-  on_attach = on_attach
+  on_attach = on_attach,
+  capabilities = capabilities
 }
 
 require'lspconfig'.clangd.setup{}
+
+require'lspconfig'.rust_analyzer.setup{
+  settings = {
+    ['rust-analyzer'] = {
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  }
+}

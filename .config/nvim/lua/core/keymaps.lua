@@ -1,3 +1,5 @@
+vim.opt.guicursor = ""
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -12,5 +14,8 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
+
+--scroll
+vim.opt.scrolloff = 8
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
