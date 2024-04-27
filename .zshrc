@@ -134,10 +134,11 @@ p () {
 alias wo="p 'work'"
 alias br="p 'break'"
 
-fitterhappier(){
-  spd-say --wait "Fitter, happier, more productive,
-  Comfortable, Not drinking too much, Regular exercise at the gym,
-  Three days a week"
+pcycle(){
+    for i in $(seq $1); do
+        p 'work'
+        p 'break'
+    done
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
