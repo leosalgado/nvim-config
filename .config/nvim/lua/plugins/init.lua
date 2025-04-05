@@ -1,3 +1,5 @@
+local leet_arg = "leetcode.nvim"
+
 return {
   {
     "stevearc/conform.nvim",
@@ -14,6 +16,21 @@ return {
   },
 
   {
+    "kawre/leetcode.nvim",
+    lazy = leet_arg ~= vim.fn.argv(0, -1),
+    build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      -- "ibhagwan/fzf-lua",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {
+      -- configuration goes here
+    },
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
@@ -25,6 +42,10 @@ return {
         "c",
         "cpp",
         "go",
+        "python",
+        "javascript",
+        "typescript",
+        "rust",
       },
     },
   },
