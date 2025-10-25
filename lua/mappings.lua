@@ -7,5 +7,6 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 map("v", "<leader>y", '"+y', { desc = "Copy selection to system clipboard" })
+map("n", "<leader>lc", ":VimtexClean<CR>", { desc = "Clean LaTeX files" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

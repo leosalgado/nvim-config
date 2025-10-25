@@ -8,8 +8,10 @@ local options = {
     javascript = { "prettier" },
     typescript = { "prettier" },
     rust = { "rustfmt" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+    tex = { "latexindent" },
+    css = { "prettier" },
+    html = { "prettier" },
+    vue = { "prettier" },
   },
 
   format_on_save = {

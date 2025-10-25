@@ -7,11 +7,21 @@ return {
     opts = require "configs.conform",
   },
 
+  {
+    "lervag/vimtex",
+    lazy = false, -- we don't want to lazy load VimTeX
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    config = function()
+      -- VimTeX configuration goes here, e.g.
+      vim.g.vimtex_view_method = "zathura"
+    end,
+  },
+
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require "configs.lspconfig"
+      vim.lsp.config = "configs.lspconfig"
     end,
   },
 
@@ -42,22 +52,12 @@ return {
   },
 
   {
+    "folke/which-key.nvim",
+    lazy = false,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "vimdoc",
-        "html",
-        "css",
-        "c",
-        "cpp",
-        "go",
-        "python",
-        "javascript",
-        "typescript",
-        "rust",
-      },
-    },
+    opts = require "configs.treesitter",
   },
 }
