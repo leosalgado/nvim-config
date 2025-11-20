@@ -11,6 +11,7 @@ local options = {
     "python",
     "javascript",
     "typescript",
+    "haskell",
     "rust",
   },
 }

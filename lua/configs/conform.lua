@@ -8,6 +8,7 @@ local options = {
     javascript = { "prettier" },
     typescript = { "prettier" },
     rust = { "rustfmt" },
+    haskell = { "ormolu" },
     tex = { "latexindent" },
     css = { "prettier" },
     html = { "prettier" },
